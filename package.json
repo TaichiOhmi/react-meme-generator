@@ -1,7 +1,7 @@
 {
   "name": "meme-generator",
   "version": "0.1.0",
-  "homepage": "https://taichiohmi.github.io/react-meme-generator",
+  "homepage": "https://taichiohmi.github.io/react-meme-generator/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
@@ -17,7 +17,11 @@
     "build": "react-scripts build",
     "postbuild": "cp build/index.html build/404.html",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "rm": "rm -rf docs",
+    "mv": "mv build docs",
+    "git": "git add . && git commit && git push origin main",
+    "deploy": "npm run rm && npm run build && npm run mv && npm run git"
   },
   "eslintConfig": {
     "extends": [

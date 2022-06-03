@@ -6,9 +6,17 @@ export default function Meme(){
     const [meme, setMeme] = React.useState({
         topText: '',
         bottomText: '',
-        randomImage: 'http://i.imgflip.com/1bij.jpg'
+        randomImage: 'https://i.imgflip.com/1bhm.jpg'
     })
+
     const [allMemeImages, setAllMemeImages] = React.useState(memesData)
+
+    React.useEffect(() => {
+        fetch('https://api.imgflip.com/get_memes')
+            .then(res => res.json())
+            .then(memes => setAllMemeImages(memes.data.memes))
+    })
+
     function getImage(){
         const memesArray = memesData.data.memes;
         const num = Math.floor(Math.random() * memesArray.length);
